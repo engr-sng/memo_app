@@ -1,0 +1,44 @@
+<div class="wrapper">
+    <div class="container flex-start">
+        <div class="col-box-1">
+            <h2>メモ一覧</h2>
+        </div>
+        <div class="col-box-3">
+            <%= form_with model: @memo_new, url: memos_path, local: true, method: :post do |f| %>
+                <div class="memo-header">
+                    <%= f.text_field :title, placeholder: "タイトル", class: "form-box" %>
+                </div>
+                <div class="memo-center">
+                    <%= f.text_area :description, placeholder: "メモ", class: "form-box" %>
+                </div>
+                <div class="memo-footer">
+                    <%= f.submit "作成", class: "btn" %>
+                </div>
+            <% end %>
+        </div>
+
+        <% @memos.reverse.each do |memo| %>
+            <div class="col-box-3">
+                <%= form_with model: memo, url: memo_path(memo.id), local: true, method: :patch do |f| %>
+                    <div class="memo-header">
+                        <%= f.text_field :title, placeholder: "タイトル", class: "form-box" %>
+                    </div>
+                    <div class="memo-center">
+                        <%= f.text_area :description, placeholder: "メモ", class: "form-box" %>
+                    </div>
+                    <div class="memo-footer">
+                        <%= f.submit "更新", class: "btn" %>
+                    </div>
+                <% end %>
+                <div class="memo-other">
+                    <%= button_to "削除", memo_path(memo.id), method: :delete, class: "btn" %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+
+
+
+

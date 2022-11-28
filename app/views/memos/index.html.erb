@@ -3,6 +3,18 @@
         <div class="col-box-1">
             <h2>メモ一覧</h2>
         </div>
+
+        <% if @memo_new.errors.any? %>
+            <div class="col-box-1">
+                <h3><%= @memo_new.errors.count %>件のエラーが発生しました。</h3>
+                <ul>
+                    <% @memo_new.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                    <% end %>
+                </ul>
+            </div>
+        <% end %>
+
         <div class="col-box-3">
             <%= form_with model: @memo_new, url: memos_path, local: true, method: :post do |f| %>
                 <div class="memo-header">

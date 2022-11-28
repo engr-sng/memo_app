@@ -6,8 +6,12 @@ class MemosController < ApplicationController
 
   def create
     @memo_new = Memo.new(memos_params)
-    @memo_new.save
-    redirect_to root_path
+    @memos = Memo.all
+    if @memo_new.save
+      redirect_to root_path
+    else
+      render action: "index"
+    end
   end
 
   def update

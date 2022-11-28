@@ -21,6 +21,7 @@
     color: #696969;
     font-size: 16px;
     font-family: sans-serif;
+    list-style-position: inside;
 }
 
 .header-color {
@@ -33,6 +34,10 @@ h1 {
 }
 
 h2 {
+    font-size: 24px;
+}
+
+h3 {
     font-size: 24px;
 }
 
@@ -117,4 +122,8 @@ textarea {
     border: 1px solid #d3d3d3;
     border-radius: 6px;
     padding: 3px 12px;
+}
+
+.field_with_errors {
+    display: contents;
 }

@@ -19,6 +19,7 @@
     margin: 0;
     box-sizing: border-box;
     color: #696969;
+    font-size: 16px;
     font-family: sans-serif;
 }
 
@@ -41,6 +42,7 @@ h2 {
 
 .container {
     margin: 0 auto;
+    width: 100%;
     max-width: 1170px;
 }
 

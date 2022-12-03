@@ -4,47 +4,17 @@
             <h2>メモ一覧</h2>
         </div>
 
-        <% if @memo_new.errors.any? %>
-            <div class="col-box-1">
-                <h3><%= @memo_new.errors.count %>件のエラーが発生しました。</h3>
-                <ul>
-                    <% @memo_new.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                    <% end %>
-                </ul>
-            </div>
-        <% end %>
+        <div class="col-box-1">
+            <%= render "layouts/errors", obj: @memo_new %>
+        </div>
 
         <div class="col-box-3">
-            <%= form_with model: @memo_new, url: memos_path, local: true, method: :post do |f| %>
-                <div class="memo-header">
-                    <%= f.text_field :title, placeholder: "タイトル", class: "form-box" %>
-                </div>
-                <div class="memo-center">
-                    <%= f.text_area :description, placeholder: "メモ", class: "form-box" %>
-                </div>
-                <div class="memo-footer">
-                    <%= f.submit "作成", class: "btn" %>
-                </div>
-            <% end %>
+            <%= render "memos/form", memo_new: @memo_new %>
         </div>
 
         <% @memos.reverse.each do |memo| %>
             <div class="col-box-3">
-                <%= form_with model: memo, url: memo_path(memo.id), local: true, method: :patch do |f| %>
-                    <div class="memo-header">
-                        <%= f.text_field :title, placeholder: "タイトル", class: "form-box" %>
-                    </div>
-                    <div class="memo-center">
-                        <%= f.text_area :description, placeholder: "メモ", class: "form-box" %>
-                    </div>
-                    <div class="memo-footer">
-                        <%= f.submit "更新", class: "btn" %>
-                    </div>
-                <% end %>
-                <div class="memo-other">
-                    <%= button_to "削除", memo_path(memo.id), method: :delete, class: "btn" %>
-                </div>
+                <%= render "memos/show", memo: memo %>
             </div>
         <% end %>
     </div>

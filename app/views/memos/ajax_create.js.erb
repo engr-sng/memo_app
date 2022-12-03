@@ -1,0 +1,3 @@
+$('#memo-list').html("<%= j(render "memos/list", memos: @memos) %>");
+$('#errors').html("<%= j(render "layouts/errors", obj: @memo_new) %>");
+$('#memo-post').find('.form-box').val('');

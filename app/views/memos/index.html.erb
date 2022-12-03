@@ -4,16 +4,16 @@
             <h2>メモ一覧</h2>
         </div>
 
-        <div class="col-box-3">
+        <div class="col-box-3" id="memo-post">
             <%= render "memos/form", memo_new: @memo_new %>
         </div>
 
-        <div class="col-box-2">
+        <div class="col-box-2" id="errors">
             <%= render "layouts/errors", obj: @memo_new %>
         </div>
      </div>
 
-    <div class="container flex-start">
+    <div class="container flex-start" id="memo-list">
         <%= render "memos/list", memos: @memos %>
     </div>
 </div>

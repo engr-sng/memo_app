@@ -26,6 +26,12 @@ class MemosController < ApplicationController
     redirect_to root_path
   end
 
+  def ajax_create
+    @memo_new = Memo.new(memos_params)
+    @memo_new.save
+    @memos = Memo.all
+  end
+
   private
 
   def memos_params

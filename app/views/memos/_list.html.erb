@@ -1,0 +1,5 @@
+        <% memos.reverse.each do |memo| %>
+            <div class="col-box-3">
+                <%= render "memos/show", memo: memo %>
+            </div>
+        <% end %>

@@ -4,19 +4,17 @@
             <h2>メモ一覧</h2>
         </div>
 
-        <div class="col-box-1">
-            <%= render "layouts/errors", obj: @memo_new %>
-        </div>
-
         <div class="col-box-3">
             <%= render "memos/form", memo_new: @memo_new %>
         </div>
 
-        <% @memos.reverse.each do |memo| %>
-            <div class="col-box-3">
-                <%= render "memos/show", memo: memo %>
-            </div>
-        <% end %>
+        <div class="col-box-2">
+            <%= render "layouts/errors", obj: @memo_new %>
+        </div>
+     </div>
+
+    <div class="container flex-start">
+        <%= render "memos/list", memos: @memos %>
     </div>
 </div>
 

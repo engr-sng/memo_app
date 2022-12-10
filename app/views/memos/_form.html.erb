@@ -1,11 +1,11 @@
-            <%= form_with model: memo_new, url: ajax_memos_create_path, local: false, method: :post do |f| %>
-                <div class="memo-header">
-                    <%= f.text_field :title, placeholder: "タイトル", class: "form-box" %>
-                </div>
-                <div class="memo-center">
-                    <%= f.text_area :description, placeholder: "メモ", class: "form-box" %>
-                </div>
-                <div class="memo-footer">
-                    <%= f.submit "作成", class: "btn" %>
-                </div>
-            <% end %>
+<%= form_with model: memo_new, url: ajax_memos_create_path, local: false, method: :post do |f| %>
+    <div class="memo-header">
+        <%= f.text_field :title, placeholder: "タイトル", class: "form-box" %>
+    </div>
+    <div class="memo-center">
+        <%= f.text_area :description, placeholder: "メモ", class: "form-box" %>
+    </div>
+    <div class="memo-footer">
+        <%= f.submit "作成", class: "btn" %>
+    </div>
+<% end %>

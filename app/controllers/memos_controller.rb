@@ -28,8 +28,13 @@ class MemosController < ApplicationController
 
   def ajax_create
     @memo_new = Memo.new(memos_params)
-    @memo_new.save
     @memos = Memo.all
+
+    if @memo_new.save
+      flash.now[:notice] = "メモの保存に成功しました。"
+    else
+      flash.now[:alert] = "メモの保存に失敗しました。"
+    end
   end
 
   private

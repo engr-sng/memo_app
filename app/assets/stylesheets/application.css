@@ -28,6 +28,21 @@
     background-color: #4169e1;
 }
 
+.green-color{
+    background-color: green;
+}
+
+.red-color{
+    background-color: red;
+}
+
+.notice-text {
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 0;
+}
+
 h1 {
     font-size: 36px;
     color: #ffffff;

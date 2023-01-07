@@ -1,0 +1,2 @@
+$('#memo-list').html("<%= j(render "memos/list", memos: @memos) %>");
+$('#notice').html("<%= j(render "layouts/notice") %>").show().fadeOut(2000);

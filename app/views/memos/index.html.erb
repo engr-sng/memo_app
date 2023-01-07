@@ -1,6 +1,13 @@
 <div class="wrapper">
     <div class="container flex-start">
         <div class="col-box-1">
+            <%= form_with url: search_path, local: false, method: :get do |f| %>
+                <%= f.text_field :word, placeholder: "検索したいメモの内容を記入してください。", class: "search-box" %>
+                <%= f.submit "検索", class: "btn" %>
+            <% end %>
+        </div>
+
+        <div class="col-box-1">
             <h2>メモ一覧</h2>
         </div>
 

@@ -1,4 +1,6 @@
 class MemosController < ApplicationController
+  before_action :current_user
+
   def index
     @memo_new = Memo.new
     @memos = Memo.all
@@ -51,6 +53,15 @@ class MemosController < ApplicationController
 
   def memos_params
     params.require(:memo).permit(:title, :description)
+  end
+
+  def current_user
+    if session[:user_id]
+      @user = User.find(session[:user_id])
+    else
+      flash[:alert] = "ログインする必要があります。"
+      redirect_to new_sessions_path
+    end
   end
 
 end

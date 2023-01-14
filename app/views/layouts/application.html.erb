@@ -12,8 +12,19 @@
 
   <body>
     <div class="wrapper header-color">
-      <div class="container">
-        <h1>MemoApp</h1>
+      <div class="container flex-between">
+        <div class="header-left">
+          <h1>MemoApp</h1>
+        </div>
+
+        <div class="header-right">
+          <% if @user.nil? %>
+            <%= link_to "ログイン", new_sessions_path, method: :get %>
+          <% else %>
+            ログインユーザー：<%= @user.name %>さん
+            <%= link_to "ログアウト", destroy_sessions_path, method: :delete %>
+          <% end %>
+        </div>
       </div>
     </div>
 

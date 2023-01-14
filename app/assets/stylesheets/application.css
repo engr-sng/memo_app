@@ -28,6 +28,21 @@
     background-color: #4169e1;
 }
 
+.header-left {
+
+}
+
+.header-right {
+    color: #ffffff;
+    display: inline-block;
+    line-height: 60px;
+}
+.header-right a{
+    text-decoration: none;
+    color: inherit;
+}
+
+
 .green-color{
     background-color: green;
 }
@@ -91,6 +106,13 @@ h3 {
     flex-wrap: wrap;
     justify-content: start;
 }
+
+.flex-between {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 
 .memo-header {
     width: 100%;

@@ -6,9 +6,9 @@ class SessionsController < ApplicationController
     end
 
     def create
-        @user = User.find_by(email: params[:email], password: params[:password])
-        if @user
-            session[:user_id] = @user.id
+        @current_user = User.find_by(email: params[:email], password: params[:password])
+        if @current_user
+            session[:user_id] = @current_user.id
             flash[:notice] = "ログインに成功しました。"
             redirect_to memos_path
         else
@@ -22,14 +22,5 @@ class SessionsController < ApplicationController
         redirect_to new_sessions_path
     end
 
-    private
-
-    def logged_in?
-        if session[:user_id]
-            @user = User.find(session[:user_id])
-            flash[:notice] = "すでにログインしています。"
-            redirect_to memos_path
-        end
-    end
 end
 

@@ -1,0 +1,22 @@
+<div class="wrapper">
+    <div class="container">
+        <h2>ユーザー情報</h2>
+
+        <div class="">
+            <p>Name</p>
+        </div>
+        <div class="form-box">
+            <%= @user.name %>
+        </div>
+
+        <div class="">
+            <p>Email</p>
+        </div>
+        <div class="form-box">
+            <%= @user.email %>
+        </div>
+
+        <%= link_to "編集", edit_users_path, method: :get %>
+
+    </div>
+</div>

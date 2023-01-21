@@ -3,7 +3,7 @@ class MemosController < ApplicationController
 
   def index
     @memo_new = Memo.new
-    @memos = Memo.all
+    @memos = @current_user.memos
   end
 
   def create
@@ -30,7 +30,8 @@ class MemosController < ApplicationController
 
   def ajax_create
     @memo_new = Memo.new(memos_params)
-    @memos = Memo.all
+    @memo_new.user_id = @current_user.id
+    @memos = @current_user.memos
 
     if @memo_new.save
       flash.now[:notice] = "メモの保存に成功しました。"
@@ -52,7 +53,7 @@ class MemosController < ApplicationController
   private
 
   def memos_params
-    params.require(:memo).permit(:title, :description)
+    params.require(:memo).permit(:title, :description, :user_id)
   end
 
 end

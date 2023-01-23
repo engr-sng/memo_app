@@ -42,7 +42,7 @@ class MemosController < ApplicationController
 
   def search
     seach_word = params[:word]
-    @memos = Memo.where("title LIKE ? or description LIKE ?", "%#{seach_word}%", "%#{seach_word}%")
+    @memos = @current_user.memos.where("title LIKE ? or description LIKE ?", "%#{seach_word}%", "%#{seach_word}%")
     if @memos.count > 0
       flash.now[:notice] = "#{@memos.count}件のメモが見つかりました。"
     else

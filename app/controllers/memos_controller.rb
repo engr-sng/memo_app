@@ -10,7 +10,7 @@ class MemosController < ApplicationController
     @memo_new = Memo.new(memos_params)
     @memos = Memo.all
     if @memo_new.save
-      redirect_to root_path
+      redirect_to memos_path
     else
       render action: "index"
     end
@@ -19,13 +19,13 @@ class MemosController < ApplicationController
   def update
     @memo = Memo.find(params[:id])
     @memo.update(memos_params)
-    redirect_to root_path
+    redirect_to memos_path
   end
 
   def destroy
     @memo = Memo.find(params[:id])
     @memo.destroy
-    redirect_to root_path
+    redirect_to memos_path
   end
 
   def ajax_create
